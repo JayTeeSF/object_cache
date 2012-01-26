@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Jason Hoth Jr"]
   s.email       = ["jason_hoth_jr@his-service.net"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Simple Object store}
+  s.description = %q{Simple Object store -- okay, it's a Hash}
 
   s.rubyforge_project = "object_cache"
 
