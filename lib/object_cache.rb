@@ -1,6 +1,5 @@
 module ObjectCache
   def self.append_features(klass)
-    # super
     klass.class_eval do
       extend ClassMethods
     end
@@ -12,12 +11,16 @@ module ObjectCache
     end
 
     def lookup_all ids=nil
-      return [] unless ids
-      ids.collect {|id| lookup(id) }.compact
+      return lookup(ids) if ids
+      cache.values
     end
 
-    def lookup id
-      cache[id]
+    def lookup id_or_ids
+      if id_or_ids.respond_to?(:collect)
+        id_or_ids.collect {|id| lookup(id) }.compact
+      else
+        cache[id_or_ids]
+      end
     end
   end
 end
