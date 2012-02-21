@@ -22,6 +22,8 @@ describe ObjectCache do
         got = subject.lookup_all(entry_ids.take(2))
         got.should == subject.lookup(entry_ids.take(2))
         got.size.should == 2
+
+        subject.lookup_all(entry_ids.take(entry_ids.size)).should == subject.lookup_all
       end
 
       it "should maintain its entries" do

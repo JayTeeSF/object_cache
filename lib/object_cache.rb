@@ -10,12 +10,15 @@ module ObjectCache
       @cache ||= {}
     end
 
-    def lookup_all ids=nil
-      return lookup(ids) if ids
-      cache.values
+    def lookup_all(ids=nil)
+      if ids
+        lookup(ids)
+      else
+        cache.values
+      end
     end
 
-    def lookup id_or_ids
+    def lookup(id_or_ids)
       if id_or_ids.respond_to?(:collect)
         id_or_ids.collect {|id| lookup(id) }.compact
       else
@@ -24,4 +27,3 @@ module ObjectCache
     end
   end
 end
-
