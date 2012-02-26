@@ -1,0 +1,2 @@
+irb -r "./lib/object_cache.rb"
+test: find ./spec -name "*_spec.rb" | rspec
